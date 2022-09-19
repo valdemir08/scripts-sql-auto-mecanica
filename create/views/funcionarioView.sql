@@ -4,19 +4,16 @@
 
 CREATE OR REPLACE VIEW public."FuncionarioView"
  AS
- SELECT "Pessoa".pessoa_id,
-    "Pessoa".nome,
-    "Pessoa".cpf_cnpj,
-    "Pessoa".rg,
-    "Pessoa".telefone,
-    "Pessoa".celular,
-    "Funcionario".funcionario_id,
+ SELECT "Funcionario".pessoa_id,
+    "Funcionario".nome,
+    "Funcionario".cpf_cnpj,
+    "Funcionario".rg,
+    "Funcionario".telefone,
+    "Funcionario".celular,
     "Funcionario".data_de_admissao,
     "Funcionario".salario,
     "Funcionario".especialidade
-   FROM "Pessoa",
-    "Funcionario"
-  WHERE "Funcionario".funcionario_id = "Pessoa".pessoa_id;
+   FROM "Funcionario";
 
 ALTER TABLE public."FuncionarioView"
     OWNER TO postgres;

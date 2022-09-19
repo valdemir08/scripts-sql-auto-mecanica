@@ -4,13 +4,12 @@
 
 CREATE OR REPLACE VIEW public."ClienteView"
  AS
- SELECT "Pessoa".pessoa_id,
-    "Pessoa".nome,
-    "Pessoa".cpf_cnpj,
-    "Pessoa".rg,
-    "Pessoa".telefone,
-    "Pessoa".celular,
-    "Cliente".cliente_id,
+ SELECT "Cliente".pessoa_id,
+    "Cliente".nome,
+    "Cliente".cpf_cnpj,
+    "Cliente".rg,
+    "Cliente".telefone,
+    "Cliente".celular,
     "Cliente".endereco,
     "Cliente".tipo,
     "Endereco".endereco_id,
@@ -19,10 +18,9 @@ CREATE OR REPLACE VIEW public."ClienteView"
     "Endereco".numero,
     "Endereco".latitude,
     "Endereco".longitude
-   FROM "Pessoa",
-    "Cliente",
+   FROM "Cliente",
     "Endereco"
-  WHERE "Cliente".cliente_id = "Pessoa".pessoa_id AND "Cliente".endereco = "Endereco".endereco_id;
+  WHERE "Cliente".endereco = "Endereco".endereco_id;
 
 ALTER TABLE public."ClienteView"
     OWNER TO postgres;

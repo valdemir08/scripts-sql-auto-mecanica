@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS public."Pessoa"
     rg character varying(20) COLLATE pg_catalog."default",
     telefone character varying(20) COLLATE pg_catalog."default",
     celular character varying(20) COLLATE pg_catalog."default",
-    CONSTRAINT pk_pessoa_id PRIMARY KEY (pessoa_id)
+    CONSTRAINT pk_pessoa_id PRIMARY KEY (pessoa_id),
+    CONSTRAINT unique_pessoa_id UNIQUE (pessoa_id)
 )
 
 TABLESPACE pg_default;
